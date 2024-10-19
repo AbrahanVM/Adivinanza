@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <script>
+        function mostrarResultado() {
+            const correctAnswer = "un parque";
+            const userAnswer = new URLSearchParams(window.location.search).get('answer');
+
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                alert('¡Correcto! La respuesta es "un parque".');
+            } else {
+                alert('Lo siento, la respuesta no es correcta. Inténtalo de nuevo.');
+            }
+            window.location.href = "index.html";
+        }
+        window.onload = mostrarResultado;
+    </script>
+</head>
+<body>
+</body>
+</html>
