@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <title>Resultado</title>
     <script>
-        function mostrarResultado() {
-            const correctAnswer = "un parque";
-            const userAnswer = new URLSearchParams(window.location.search).get('answer');
-
-            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-                alert('¡Correcto! La respuesta es "un parque".');
-            } else {
-                alert('Lo siento, la respuesta no es correcta. Inténtalo de nuevo.');
-            }
-            window.location.href = "index.html";
+        function mostrarResultado(mensaje) {
+            alert(mensaje);
+            window.location.href = "index.html"; // Verifica que la ruta sea correcta
         }
-        window.onload = mostrarResultado;
     </script>
 </head>
 <body>
+    <?php
+    $correct_answer = "un parque";
+    $user_answer = $_POST['answer'];
+
+    if (strtolower($user_answer) == strtolower($correct_answer)) {
+        echo "<script>mostrarResultado('¡Correcto! La respuesta es \"$correct_answer\".');</script>";
+    } else {
+        echo "<script>mostrarResultado('Lo siento, la respuesta no es correcta. Inténtalo de nuevo.');</script>";
+    }
+    ?>
 </body>
 </html>
